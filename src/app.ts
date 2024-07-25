@@ -9,6 +9,7 @@ import codeiumAuth from "./models/codeium-auth"
 import Github from "./providers/github"
 import Openai from "./providers/openai"
 import Codeium from "./providers/codeium"
+import Cody from "./providers/cody";
 
 if (config.authCopilot) {
   await copilotAuth()
@@ -23,6 +24,7 @@ if (config.authCodeium) {
 assistant.registerProvider("copilot", new Github())
 assistant.registerProvider("openai", new Openai())
 assistant.registerProvider("codeium", new Codeium())
+assistant.registerProvider("cody", new Cody());
 
 const lsp = new Lsp.Service({
   capabilities: {
